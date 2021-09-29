@@ -1,0 +1,26 @@
+{
+  "name": "MisinformationSlayer",
+  "description": "Fight with misinformaion",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/ms_logo.png",
+      "32": "/images/ms_logo.png",
+      "48": "/images/ms_logo.png",
+      "128": "/images/ms_logo.png"
+    }
+  },
+  "icons": {
+    "16": "/images/ms_logo.png",
+    "32": "/images/ms_logo.png",
+    "48": "/images/ms_logo.png",
+    "128": "/images/ms_logo.png"
+  },
+  "options_page": "options.html"
+}
