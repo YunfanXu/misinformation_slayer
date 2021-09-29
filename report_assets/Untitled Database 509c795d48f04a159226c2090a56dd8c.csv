@@ -1,0 +1,8 @@
+﻿MileStone,Tasks,Date,Reporting
+1.1,Complete UI development for browser extension,"September 28, 2021 → October 8, 2021",
+2.1,Install and deploy the Fakebox on server,"October 8, 2021 → October 15, 2021",
+2.2,Create RESTful API for Fakebox and integrate with browser extension,"October 15, 2021 → October 23, 2021",
+3.1,Train the fine-tune  Xception mode for detection of manipulated videos and images,"October 23, 2021 → November 7, 2021",
+3.2,Create RESTful API for Xception model and integrate with browser extension,"November 8, 2021 → November 20, 2021",
+3.3,Test for debug for the whole system,"November 21, 2021 → November 30, 2021",
+4.1,Write final report,"December 1, 2021 → December 10, 2021",
