@@ -11,9 +11,9 @@
       <h2>Misinformation Slayer</h2>
     </div>
     <div class="menu_container">
-      <button class="tablinks active" onclick="openCity(event, 'News')">News</button>
-      <button class="tablinks" onclick="openCity(event, 'Video')">Video</button>
-      <button class="tablinks" onclick="openCity(event, 'Image')">Image</button>
+      <button class="tablinks active" id="news_button">News</button>
+      <button class="tablinks" id="video_button">Video</button>
+      <button class="tablinks" id="image_button">Image</button>
       <div class="action_container">
         <div>
           <input type="radio" id="report" name="actioner" value="report" checked>
@@ -26,39 +26,47 @@
       </div>
     </div>
 
-    <div class="content_container">
-      <div class="input_container">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required minlength="4">
-      </div>
-      <div class="input_container" id="news" class="tabcontent">
-        <label for="content">Content:</label>
-        <textarea id="content" name="content" rows="5" cols="33">Please paste the content to here.  </textarea>
-      </div>
+    <form class="content_container" autocomplete="on">
       <div class="input_container">
         <label for="url">URL:</label>
         <input type="url" id="url" name="url" required minlength="4" placeholder="https://example.com"
           pattern="https://.*">
       </div>
 
-      <div class="input_container radio_container">
-        <h3>Select:</h3>
-        <div>
-          <input type="radio" id="real" name="label" value="real" checked>
-          <label for="real">Real</label>
+      <div id="content_title" class="input_container">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required minlength="4">
+      </div>
+      <div id="content_content" class="input_container" id="news" class="tabcontent">
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" rows="5" cols="33">Please paste the content to here.  </textarea>
+      </div>
+
+      <div class=" subcontent_container">
+        <div id="select_container" class="input_container radio_container">
+          <h3>Select:</h3>
+          <div>
+            <input type="radio" id="real" name="reportLabel" value="real" checked>
+            <label for="real">Real</label>
+          </div>
+          <div>
+            <input type="radio" id="not_real" name="reportLabel" value="fake">
+            <label for="not_real">Fake</label>
+          </div>
         </div>
-        <div>
-          <input type="radio" id="not_real" name="label" value="not_real">
-          <label for="not_real">Fake</label>
+
+        <div id="result_container" class="input_container radio_container">
+          <h3>Result:</h3>
+          <div id="query_result"></div>
         </div>
       </div>
 
-    </div>
+      <div class="center_display button_container">
+        <button id="submit_button">Submit</button>
+        <!-- <button>Cancel</button> -->
+      </div>
+    </form>
 
-    <div class="center_display button_container">
-      <button>Submit</button>
-      <button>Cancel</button>
-    </div>
   </div>
 
   <script src="popup.js"></script>

@@ -16,6 +16,13 @@
       "128": "/images/ms_logo.png"
     }
   },
+  "host_permissions": [
+    "http://192.241.156.70:8080/fakebox/check",
+    "*://*/*"
+  ],
+  "externally_connectable": {
+    "matches": ["http://192.241.156.70:8080/fakebox/check"]
+  },
   "icons": {
     "16": "/images/ms_logo.png",
     "32": "/images/ms_logo.png",

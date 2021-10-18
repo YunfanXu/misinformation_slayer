@@ -6,30 +6,35 @@ body {
   padding: 0.5pc;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
-.center_display{
+
+.center_display {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.title_container{
+
+.title_container {
   height: 60px;
   width: 100%;
-
   /* background: linear-gradient(#000000, #ffffff); */
 }
-.title_container h2{
+
+.title_container h2 {
   font-size: 18px;
   letter-spacing: 1.8;
   font-weight: 900;
   line-height: 2;
   color: black;
 }
+
 /* Style the tab */
+
 /* .menu_container{
   background-color: whitesmoke;
 } */
 
 /* Style the buttons inside the tab */
+
 .menu_container button {
   float: left;
   border: none;
@@ -37,61 +42,69 @@ body {
   font-size: 17px;
   padding: 8px 16px;
   background-color: transparent;
-
 }
 
 .menu_container button:hover {
   color: #00BFFF;
-
 }
 
 .menu_container button {
   border-bottom: 1px solid lightgray;
 }
 
-.menu_container  .active{
+.menu_container .active {
   border: 1px solid lightgray;
   color: #00BFFF;
   border-bottom: none;
 }
+
 /* Change background color of buttons on hover */
+
 /* .tab button:hover {
   background-color: #f1f1f1;
 } */
 
 /* Create an active/current tablink class */
+
 /* .tab button.active {
   background-color: #ccc;
 } */
 
 /* Style the tab content */
+
 .tabcontent {
   display: none;
   padding: 6px 12px;
 }
 
-.button_container{
-  margin-left: 50%;
-  width: 45%;
+.button_container {
+  margin-left: 60%;
+  margin-top: 80px;
+  width: 30%;
   height: 5pc;
   justify-content: space-between;
-
 }
-.button_container button {
+
+#submit_button {
   height: 35px;
   width: 100px;
   border-radius: 5px;
-  border:none;
+  border: none;
   color: white;
   background-color: #4169E1;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.button_container button:hover {
+#submit_button:hover {
   background-color: #00008B;
 }
 
-.input_container{
+.subcontent_container {
+  position: relative;
+
+}
+
+.input_container {
   height: auto;
   width: 80%;
   margin-left: 0;
@@ -101,7 +114,7 @@ body {
   justify-content: space-between;
 }
 
-.input_container label,h3{
+.input_container label, h3 {
   font-size: 1pc;
   color: black;
   line-height: 2;
@@ -109,17 +122,26 @@ body {
   font-weight: 500;
   letter-spacing: 2;
 }
-.input_container input,textarea{
+
+.input_container input, textarea {
   width: 70%;
 }
 
-.radio_container{
+.radio_container {
+  position: absolute;
+  background-color: white;
+  left: 0;
+  top: 0;
+  z-index: 2;
   display: inline-flex;
   justify-content: space-between;
   width: 70%;
 }
+#result_container{
+  z-index: -1;
+}
 
-.radio_container div{
+.radio_container div {
   width: 40%;
   padding: 0 1pc;
   display: inline-flex;
@@ -127,11 +149,11 @@ body {
   justify-content: space-between;
 }
 
-.radio_container div label{
+.radio_container div label {
   width: 80%;
 }
 
-.action_container{
+.action_container {
   width: 50%;
   height: 3pc;
   margin-right: 5%;
@@ -140,6 +162,7 @@ body {
   align-items: flex-end;
   justify-content: space-around;
 }
-.action_container div{
+
+.action_container div {
   width: 50%;
 }
