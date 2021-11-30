@@ -45,8 +45,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         console.log("base64Img", base64Img);
         var formdata = new FormData();
         formdata.append("image", base64Img)
-        // formdata.append("file", imageFile, "face2face1.png");
-        fetch("http://localhost:5000/QueryImage", {
+        fetch("http://localhost:5000/queryImage", {
           method: 'POST',
           body: formdata
         }).then(r => r.text())
@@ -58,6 +57,28 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         console.log("Error", error);
         return false;
       }
+      break;
+    case "postVideo":
+      try {
+        let videoData = message.data;
+        videoData = videoData.replace("data:video/mp4;base64,", "");
+
+        console.log("videoData", videoData);
+        var formdata = new FormData();
+        formdata.append("video", videoData)
+        fetch("http://localhost:5000/queryVideo", {
+          method: 'POST',
+          body: formdata
+        }).then(r => r.text())
+          .then(response => {
+            console.log("fetched", response);
+            sendResponse(response);
+          });
+      } catch (error) {
+        console.log("Error", error);
+        return false;
+      }
+      break;
   }
   return true;
 });

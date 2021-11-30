@@ -69,6 +69,7 @@ var bglog = function () {
 }
 
 function handleLoad() {
+  clearResultArea();
   preview.src = reader.result;
 }
 
@@ -82,45 +83,38 @@ function handleSelected(e) {
 }
 
 
-const submitVideo = (data) => {
-
+const submitVideo = () => {
+  chrome.runtime.sendMessage({
+    type: "postVideo",
+    data: reader.result
+  }, response => {
+    response = JSON.parse(response);
+    if (response != undefined) {
+      if (actionType === "report") {
+        alert("Submit Successfully!")
+      } else {
+        bglog("test Image Response:", response);
+        setImageResultArea(response);
+      }
+    }
+    else {
+      bglog("feched failed!")
+    }
+  });
 }
 
-
-// const b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
-//   const byteCharacters = atob(b64Data);
-//   const byteArrays = [];
-
-//   for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-//     const slice = byteCharacters.slice(offset, offset + sliceSize);
-//     const byteNumbers = new Array(slice.length);
-
-//     for (let i = 0; i < slice.length; i++) {
-//       byteNumbers[i] = slice.charCodeAt(i);
-//     }
-//     const byteArray = new Uint8Array(byteNumbers);
-//     byteArrays.push(byteArray);
-//   }
-
-//   const blob = new Blob(byteArrays, { type: contentType });
-
-//   return blob;
-// }  
-
-
 const submitImage = () => {
-  // const blob = b64toBlob(reader.result, 'image/png')
   chrome.runtime.sendMessage({
     type: "postImage",
     data: reader.result
   }, response => {
     response = JSON.parse(response);
-    if (response != undefined && response.success) {
+    if (response != undefined) {
       if (actionType === "report") {
         alert("Submit Successfully!")
       } else {
         bglog("test Image Response:", response);
-        // setResultArea(response);
+        setImageResultArea(response);
       }
     }
     else {
@@ -134,6 +128,13 @@ const setResultArea = (response) => {
   <span class="result_elements">URL: ${response.domain.category}</span>
   <span class="result_elements">Title: ${response.title.decision}</span>
   <span class="result_elements">Content: ${response.content.decision}</span> `
+}
+
+const setImageResultArea = ({ label, score }) => {
+  queryResult.innerHTML = `
+  <span class="result_elements">Label: ${label}</span>
+  <span class="result_elements">Score: ${score}</span>
+  `;
 }
 
 const clearResultArea = () => {
