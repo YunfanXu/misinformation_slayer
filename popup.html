@@ -27,19 +27,31 @@
     </div>
 
     <form class="content_container" autocomplete="on">
-      <div class="input_container">
+      <div id="content_url" class="input_container">
         <label for="url">URL:</label>
         <input type="url" id="url" name="url" required minlength="4" placeholder="https://example.com"
           pattern="https://.*">
       </div>
 
+      <div id="content_upload">
+        <div class="input_container">
+          <label for="file">Upload file:</label>
+          <input type="file" id="file">
+        </div>
+
+        <img src="" class="preview"  alt="Image preview...">
+
+      </div>
+
       <div id="content_title" class="input_container">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required minlength="4">
+        <input type="text" id="title" name="title" required minlength="4" placeholder="Please input title here...">
       </div>
+
+
       <div id="content_content" class="input_container" id="news" class="tabcontent">
         <label for="content">Content:</label>
-        <textarea id="content" name="content" rows="5" cols="33">Please paste the content to here.  </textarea>
+        <textarea id="content" name="content" rows="5" cols="33" placeholder="Please input content here..."></textarea>
       </div>
 
       <div class=" subcontent_container">

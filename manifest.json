@@ -6,7 +6,11 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -17,11 +21,17 @@
     }
   },
   "host_permissions": [
-    "http://192.241.156.70:8080/fakebox/check",
+    "http://localhost:8080/fakebox/check",
+    "http://localhost:5000/testImage",
+    "http://localhost:5000/testVideo",
     "*://*/*"
   ],
   "externally_connectable": {
-    "matches": ["http://192.241.156.70:8080/fakebox/check"]
+    "matches": [
+      "http://localhost:8080/fakebox/check",
+      "http://localhost:5000/testImage",
+      "http://localhost:5000/testVideo"
+    ]
   },
   "icons": {
     "16": "/images/ms_logo.png",

@@ -85,6 +85,12 @@ body {
   justify-content: space-between;
 }
 
+#submit_button:hover {
+  box-shadow: 0 10px 10px -10px rgb(0 0 0 / 50%);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 #submit_button {
   height: 35px;
   width: 100px;
@@ -137,7 +143,8 @@ body {
   justify-content: space-between;
   width: 70%;
 }
-#result_container{
+
+#result_container {
   z-index: -1;
 }
 
@@ -165,4 +172,42 @@ body {
 
 .action_container div {
   width: 50%;
+}
+
+#query_result {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  font-size: 14px;
+  color: red;
+  line-height: 1.5;
+}
+
+.result_elements {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  letter-spacing: 1.8;
+}
+
+input[type="radio"]:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+#content_upload {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+
+  width: 100%;
+
+}
+
+img{
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
