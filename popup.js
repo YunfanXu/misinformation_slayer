@@ -46,8 +46,9 @@ const contentURL = document.getElementById("content_url");
 const contentUpload = document.getElementById("content_upload");
 const contentTitle = document.getElementById("content_title");
 const contentContent = document.getElementById("content_content");
-const actioner = document.getElementsByName("actioner");
-const reportLabel = document.getElementsByName("reportLabel");
+// const actioner = document.getElementsByName("actioner");
+// const reportLabel = document.getElementsByName("reportLabel");
+const beReporter = document.getElementById("report");
 const queryResult = document.getElementById("query_result");
 const selectContainer = document.getElementById("select_container");
 const resultContainer = document.getElementById("result_container");
@@ -59,7 +60,7 @@ const tabButton = [newsButton, videoButton, imageButton];
 const contentArray = [contentURL, contentTitle, contentContent, contentUpload];
 
 let currentType = "news";
-let actionType = "report";
+let actionType = "query";
 let resultLabel = "real";
 
 var bglog = function () {
@@ -71,6 +72,7 @@ var bglog = function () {
 function handleLoad() {
   clearResultArea();
   preview.src = reader.result;
+  preview.style.display = "flex";
 }
 
 function handleSelected(e) {
@@ -203,6 +205,8 @@ const setButtons = () => {
     button.addEventListener('click', (e) => {
       clearActive();
       clearResultArea();
+      preview.style.display = "none";
+
       button.classList.add("active");
       currentType = button.textContent.toLowerCase();
       if (currentType === 'news') {
@@ -226,38 +230,46 @@ const hiddenContent = () => {
   })
 }
 
-const setActioner = () => {
-  actioner.forEach(item => {
-    item.addEventListener('click', (e) => {
-      actionType = e.target.value;
-      bglog("==actionType====", actionType);
+// const setActioner = () => {
+//   actioner.forEach(item => {
+//     item.addEventListener('click', (e) => {
+//       actionType = e.target.value;
+//       bglog("==actionType====", actionType);
 
-      if (actionType === 'report') {
-        selectContainer.style.zIndex = 2;
-        resultContainer.style.zIndex = 1;
-      } else {
-        selectContainer.style.zIndex = 1;
-        resultContainer.style.zIndex = 2;
-      }
+//       if (actionType === 'report') {
+//         selectContainer.style.zIndex = 2;
+//         resultContainer.style.zIndex = 1;
+//       } else {
+//         selectContainer.style.zIndex = 1;
+//         resultContainer.style.zIndex = 2;
+//       }
+//     });
+//   })
+// }
+
+// const setReportLabel = () => {
+//   reportLabel.forEach(item => {
+//     item.addEventListener('click', (e) => {
+//       if (e.target.checked) {
+//         resultLabel = e.target.value;
+//       }
+//     });
+//   })
+// }
+
+const setBeReporter = () => {
+  beReporter.addEventListener('click', () => {
+    chrome.runtime.sendMessage({
+      type: "openRegisterPage"
     });
   })
 }
-
-const setReportLabel = () => {
-  reportLabel.forEach(item => {
-    item.addEventListener('click', (e) => {
-      if (e.target.checked) {
-        resultLabel = e.target.value;
-      }
-    });
-  })
-}
-
 const setEventListen = () => {
   setSubmitButton();
   setButtons();
-  setActioner();
-  setReportLabel();
+  setBeReporter();
+  // setActioner();
+  // setReportLabel();
 
 }
 

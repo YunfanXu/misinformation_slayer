@@ -207,6 +207,7 @@ input[type="radio"]:hover {
 }
 
 img{
+  display: none;
   object-fit: cover;
   width: 100%;
   height: auto;

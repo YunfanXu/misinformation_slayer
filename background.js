@@ -12,13 +12,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
           title,
           content
         };
-        // var data = {
-        //   url: "http://www.bbc.co.uk/news/world-asia-40909468",
-        //   title: "North Korea: China urges Trump not to worsen situation",
-        //   content: "China's President Xi Jinping has urged Donald Trump..."
-        // }
-
-
         data = JSON.stringify(data);
         // send to the endpoint
         fetch("http://localhost:8080/fakebox/check", {
@@ -79,6 +72,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         return false;
       }
       break;
+    case "openRegisterPage":
+      chrome.tabs.create({
+        url: "http://localhost:8081/"
+      })
   }
   return true;
 });
